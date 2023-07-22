@@ -6,20 +6,26 @@ namespace Test06
 {
     class NumberService
     {
-        public int FindMinNumbers(int inputNum)
+        public double GetWhat(int inputNum, int degree)
         {
-            Random random = new Random();
-            int numMin = int.MaxValue;
-            int result = 0;
-            for (int i = 0; i < inputNum; i++)
+            if (degree == 0)
             {
-                int numOne = random.Next(int.MinValue, int.MaxValue);
-                if (numOne <= numMin)
+                return 1;
+            }
+            double result = (double)inputNum;
+            if (degree > 0)
+            {
+                for (int i = 1; i < degree; i++)
                 {
-                    int numMax = numMin;
-                    numMin = numOne;
-                    numOne = numMax;
-                    result = numMin;
+                    result = result * inputNum;
+                }
+            }
+            if (degree < 0)
+            {
+                result = 1;
+                for (int i = 0; i > degree; i--)
+                {
+                    result = result / (double)inputNum;
                 }
             }
             return result;

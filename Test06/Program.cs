@@ -7,9 +7,10 @@ namespace Test06
         static void Main(string[] args)
         {
             NumberService numberService = new NumberService();
-            int inputNumFive = int.Parse(Console.ReadLine());
-            int resultMinOfEnteredNumbers = numberService.FindMinNumbers(inputNumFive);
-            Console.WriteLine(resultMinOfEnteredNumbers);
+            int inputNumOne = int.Parse(Console.ReadLine());
+            int inputDegree = int.Parse(Console.ReadLine());
+            double resultFlipNumber = numberService.GetWhat(inputNumOne, inputDegree);
+            Console.WriteLine(resultFlipNumber);
         }
     }
 }
