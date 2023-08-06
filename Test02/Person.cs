@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Test02
+namespace Test02Arrays4
 {
-    class PersonParams
+    class Person
     {
+        public string name;
         public int age;
-        public int weight;
-        public int height;
     }
 }

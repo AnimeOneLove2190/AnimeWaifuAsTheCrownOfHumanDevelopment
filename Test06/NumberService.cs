@@ -6,29 +6,24 @@ namespace Test06
 {
     class NumberService
     {
-        public double GetWhat(int inputNum, int degree)
+        public bool IsPrimeNumber(int inputNum)
         {
-            if (degree == 0)
+            if (inputNum == 1)
             {
-                return 1;
+                return false;
             }
-            double result = (double)inputNum;
-            if (degree > 0)
+            if (inputNum == 2)
             {
-                for (int i = 1; i < degree; i++)
+                return true;
+            }
+            for (int divider = 2; divider < inputNum; divider++)
+            {
+                if (inputNum % divider == 0)
                 {
-                    result = result * inputNum;
+                    return false;
                 }
             }
-            if (degree < 0)
-            {
-                result = 1;
-                for (int i = 0; i > degree; i--)
-                {
-                    result = result / (double)inputNum;
-                }
-            }
-            return result;
+            return true;
         }
     }
 }

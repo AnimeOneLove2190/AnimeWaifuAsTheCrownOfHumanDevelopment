@@ -7,10 +7,9 @@ namespace Test06
         static void Main(string[] args)
         {
             NumberService numberService = new NumberService();
-            int inputNumOne = int.Parse(Console.ReadLine());
-            int inputDegree = int.Parse(Console.ReadLine());
-            double resultFlipNumber = numberService.GetWhat(inputNumOne, inputDegree);
-            Console.WriteLine(resultFlipNumber);
+            int inputNumThree = int.Parse(Console.ReadLine());
+            bool numberIsEasy = numberService.IsPrimeNumber(inputNumThree);
+            Console.WriteLine(numberIsEasy);
         }
     }
 }
