@@ -6,12 +6,12 @@ namespace Test02Arrays4
 {
     class MathService
     {
-        public void CreateArray(int[] inputArray)
+        public void FillArray(int[] inputArray)
         {
             Random godOfNumbers = new Random();
             for(int i = 0; i < inputArray.Length; i++)
             {
-                inputArray[i] = godOfNumbers.Next(int.MinValue, int.MaxValue);
+                inputArray[i] = godOfNumbers.Next(-100, 100);
             }
         }
     }

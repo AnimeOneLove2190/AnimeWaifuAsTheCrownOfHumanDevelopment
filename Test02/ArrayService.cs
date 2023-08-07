@@ -8,21 +8,35 @@ namespace Test02Arrays4
     {
         public void PrintArray(int[] array)
         {
+            if (array.Length == 0)
+            {
+                Console.WriteLine("Массив пуст, милорд");
+            }
             for (int i = 0; i < array.Length; i++)
             {
                 Console.WriteLine(array[i]);
             }
         }
-        public double GetAverageAge(Person[] waifuArray)
+        public int[] GetEvenArray(int[] array)
         {
-            int sum = 0;
-            for (int i = 0; i < waifuArray.Length; i++)
+            int countOfNumbers = 0;
+            for (int i = 0; i < array.Length; i++)
             {
-                Person person = waifuArray[i];
-                sum += person.age;
+                if (array[i] % 2 == 0)
+                {
+                    countOfNumbers++;
+                }
             }
-            double averageAge = (double)sum / waifuArray.Length;
-            return averageAge;
+            int[] evenArray = new int[countOfNumbers];
+            for (int i = 0, j = 0; j < evenArray.Length && i < array.Length; i++)
+            {
+                if (array[i] % 2 == 0)
+                {
+                    evenArray[j] = array[i];
+                    j++;
+                }
+            }
+            return evenArray;
         }
     }
 }
