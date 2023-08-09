@@ -11,7 +11,7 @@ namespace Test02Arrays4
             Random godOfNumbers = new Random();
             for(int i = 0; i < inputArray.Length; i++)
             {
-                inputArray[i] = godOfNumbers.Next(-100, 100);
+                inputArray[i] = godOfNumbers.Next(0, 10);
             }
         }
     }

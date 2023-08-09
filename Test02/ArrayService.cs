@@ -1,42 +1,70 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Test02Arrays4
 {
     class ArrayService
     {
-        public void PrintArray(int[] array)
+        public void PrintArrayNumber(int[] array)
         {
-            if (array.Length == 0)
+            if (array == null || array.Length == 0)
             {
                 Console.WriteLine("Массив пуст, милорд");
+                return;
             }
             for (int i = 0; i < array.Length; i++)
             {
-                Console.WriteLine(array[i]);
+                Console.Write($"{array[i]} ");
             }
+            Console.WriteLine();
         }
-        public int[] GetEvenArray(int[] array)
+        public int[] GetArraySum(int[] arrayOne, int[] arrayTwo)
         {
-            int countOfNumbers = 0;
-            for (int i = 0; i < array.Length; i++)
+            if ((arrayOne == null || arrayOne.Length == 0) && ((arrayTwo == null || arrayTwo.Length == 0)))
             {
-                if (array[i] % 2 == 0)
+                Console.WriteLine("Сработала защита");
+                return null;
+            }
+            int[] arraySum = null;
+            if (arrayOne.Length == arrayTwo.Length)
+            {
+                arraySum = new int[arrayOne.Length];
+                for (int i = 0; i < arraySum.Length; i++)
                 {
-                    countOfNumbers++;
+                    arraySum[i] = arrayOne[i] + arrayTwo[i];
+                }
+                return arraySum;
+            }
+            if (arrayOne.Length > arrayTwo.Length)
+            {
+                arraySum = new int[arrayOne.Length];
+                for (int i = 0, j = 0; i < arrayOne.Length; i++, j++)
+                {
+                    if (j < arrayTwo.Length)
+                    {
+                        arraySum[i] = arrayOne[i] + arrayTwo[i];
+                    }
+                    else
+                    {
+                        arraySum[i] = arrayOne[i];
+                    }
                 }
             }
-            int[] evenArray = new int[countOfNumbers];
-            for (int i = 0, j = 0; j < evenArray.Length && i < array.Length; i++)
+            if (arrayOne.Length < arrayTwo.Length)
             {
-                if (array[i] % 2 == 0)
+                arraySum = new int[arrayOne.Length];
+                for (int i = 0, j = 0; i < arrayOne.Length; i++, j++)
                 {
-                    evenArray[j] = array[i];
-                    j++;
+                    if (j < arrayOne.Length)
+                    {
+                        arraySum[i] = arrayOne[i] + arrayTwo[i];
+                    }
+                    else
+                    {
+                        arraySum[i] = arrayTwo[i];
+                    }
                 }
             }
-            return evenArray;
+            return arraySum;
         }
     }
 }

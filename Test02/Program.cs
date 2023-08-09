@@ -8,12 +8,14 @@ namespace Test02Arrays4
         {
             ArrayService arrayService = new ArrayService();
             MathService numberService = new MathService();
-            int[] randomArray = new int[10];
-            int[] randomArrayPlus = new int[10];
+            int[] randomArray = new int[4];
             numberService.FillArray(randomArray);
+            int[] randomArrayPlus = new int[6];
             numberService.FillArray(randomArrayPlus);
-            int[] evenArray = arrayService.GetEvenArray(randomArray);
-            arrayService.PrintArray(evenArray);
+            arrayService.PrintArrayNumber(randomArray);
+            arrayService.PrintArrayNumber(randomArrayPlus);
+            int[] arraySum = arrayService.GetArraySum(randomArray, randomArrayPlus);
+            arrayService.PrintArrayNumber(arraySum);
         }
     }
 }
