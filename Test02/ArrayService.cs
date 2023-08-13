@@ -4,67 +4,33 @@ namespace Test02Arrays4
 {
     class ArrayService
     {
-        public void PrintArrayNumber(int[] array)
-        {
-            if (array == null || array.Length == 0)
-            {
-                Console.WriteLine("Массив пуст, милорд");
-                return;
-            }
-            for (int i = 0; i < array.Length; i++)
-            {
-                Console.Write($"{array[i]} ");
-            }
-            Console.WriteLine();
-        }
-        public int[] GetArraySum(int[] arrayOne, int[] arrayTwo)
-        {
-            if ((arrayOne == null || arrayOne.Length == 0) && ((arrayTwo == null || arrayTwo.Length == 0)))
+        public int[] RemoveLastElementFromArray(int[] array)
+        {    
+            if (array == null)
             {
                 Console.WriteLine("Сработала защита");
                 return null;
             }
-            int[] arraySum = null;
-            if (arrayOne.Length == arrayTwo.Length)
+            int[] arrayWithoutElement = new int[array.Length - 1];
+            for (int i = 0; i < arrayWithoutElement.Length; i++)
             {
-                arraySum = new int[arrayOne.Length];
-                for (int i = 0; i < arraySum.Length; i++)
-                {
-                    arraySum[i] = arrayOne[i] + arrayTwo[i];
-                }
-                return arraySum;
+                arrayWithoutElement[i] = array[i];
             }
-            if (arrayOne.Length > arrayTwo.Length)
+            return arrayWithoutElement;
+        }
+        public Person[] RemoveLastElementFromArray(Person[] waifuArray)
+        {
+            if (waifuArray == null)
             {
-                arraySum = new int[arrayOne.Length];
-                for (int i = 0, j = 0; i < arrayOne.Length; i++, j++)
-                {
-                    if (j < arrayTwo.Length)
-                    {
-                        arraySum[i] = arrayOne[i] + arrayTwo[i];
-                    }
-                    else
-                    {
-                        arraySum[i] = arrayOne[i];
-                    }
-                }
+                Console.WriteLine("Сработала защита");
+                return null;
             }
-            if (arrayOne.Length < arrayTwo.Length)
+            Person[] arrayWithoutElement = new Person[waifuArray.Length - 1];
+            for (int i = 0; i < arrayWithoutElement.Length; i++)
             {
-                arraySum = new int[arrayOne.Length];
-                for (int i = 0, j = 0; i < arrayOne.Length; i++, j++)
-                {
-                    if (j < arrayOne.Length)
-                    {
-                        arraySum[i] = arrayOne[i] + arrayTwo[i];
-                    }
-                    else
-                    {
-                        arraySum[i] = arrayTwo[i];
-                    }
-                }
+                    arrayWithoutElement[i] = waifuArray[i];
             }
-            return arraySum;
+            return arrayWithoutElement;
         }
     }
 }
