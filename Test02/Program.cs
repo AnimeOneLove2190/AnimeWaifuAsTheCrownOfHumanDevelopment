@@ -8,7 +8,7 @@ namespace Test02Arrays4
         {
             ArrayService arrayService = new ArrayService();
             TechnicalService techService = new TechnicalService();
-            int[] randomArray = new int[5];
+            int[] randomArray = new int[10];
             techService.FillArray(randomArray);
             int[] randomArrayPlus = new int[6];
             techService.FillArray(randomArrayPlus);
@@ -30,17 +30,19 @@ namespace Test02Arrays4
             Person personSix = new Person();
             personSix.name = "Holo";
             personSix.age = 834;
-            Person[] personArray = new Person[5];
+            Person[] personArray = new Person[6];
             personArray[0] = personOne;
             personArray[1] = personTwo;
             personArray[2] = personThree;
             personArray[3] = personFour;
             personArray[4] = personFive;
+            personArray[5] = personSix;
             techService.PrintArrayNumber(randomArray);
-            int[] arrayWithoutLastElementNum = arrayService.RemoveLastElementFromArray(randomArray);
-            techService.PrintArrayNumber(arrayWithoutLastElementNum);
-            Person[] arrayWithoutLastElementPer = arrayService.RemoveLastElementFromArray(personArray);
-            techService.PrintArrayPerson(arrayWithoutLastElementPer);
+            int[] arrayWithoutSelectedSegmentNum = arrayService.RemoveSelectedSegmentFromArray(randomArray, 3, 6);
+            techService.PrintArrayNumber(arrayWithoutSelectedSegmentNum);
+            techService.PrintArrayPerson(personArray);
+            Person[] arrayWithoutSelectedSegmentPer = arrayService.RemoveSelectedSegmentFromArray(personArray, 2, 4);
+            techService.PrintArrayPerson(arrayWithoutSelectedSegmentPer);
         }
     }
 }
