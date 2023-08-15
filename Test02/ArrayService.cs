@@ -4,34 +4,44 @@ namespace Test02Arrays4
 {
     class ArrayService
     {
-        public int[] RemoveSelectedValueFromArray(int[] array, int selectedValue)
-        {    
+        public int[] PullOutSelectedSegmentFromArray(int[] array, int minValueSegment, int maxValueSegment)
+        {
             if (array == null || array.Length == 0)
             {
                 Console.WriteLine("Сработала защита");
                 return null;
             }
-            int countOfNumbers = 0;
-            for (int i = 0; i < array.Length; i++)
+            if (maxValueSegment < minValueSegment)
             {
-                if (array[i] == selectedValue)
+                int temporaryStorage = maxValueSegment;
+                maxValueSegment = minValueSegment;
+                minValueSegment = temporaryStorage;
+            }
+            if (minValueSegment < 0)
+            {
+                return array;
+            }
+            int[] selectedSegment = new int[maxValueSegment - minValueSegment + 1];
+            for (int i = 0, j = minValueSegment; i < selectedSegment.Length; i++, j++)
+            {
+                selectedSegment[i] = j;
+                if (selectedSegment[i] >= array.Length)
                 {
-                    countOfNumbers++;
+                    return array;
                 }
             }
-            int[] arrayWithoutValues = new int[array.Length - countOfNumbers];
-            for (int i = 0, j = 0; i < array.Length; i++)
+            int[] pullOutSegment = new int[selectedSegment.Length];
+            for (int i = 0, j = 0; i < array.Length && j < selectedSegment.Length; i++)
             {
-                if (array[i] == selectedValue)
+                if (selectedSegment[j] == i)
                 {
-                    continue;
+                    pullOutSegment[j] = array[i];
+                    j++;
                 }
-                arrayWithoutValues[j] = array[i];
-                j++;
             }
-            return arrayWithoutValues;
+            return pullOutSegment;
         }
-        public Person[] RemoveSelectedSegmentFromArray(Person[] waifuArray, int minValueSegment, int maxValueSegment)
+        public Person[] PullOutSelectedSegmentFromArray(Person[] waifuArray, int minValueSegment, int maxValueSegment)
         {
             if (waifuArray == null || waifuArray.Length == 0)
             {
@@ -48,33 +58,25 @@ namespace Test02Arrays4
             {
                 return waifuArray;
             }
-            int[] deletedSegment = new int[maxValueSegment - minValueSegment + 1];
-            for (int i = 0, j = minValueSegment; i < deletedSegment.Length; i++, j++)
+            int[] selectedSegment = new int[maxValueSegment - minValueSegment + 1];
+            for (int i = 0, j = minValueSegment; i < selectedSegment.Length; i++, j++)
             {
-                deletedSegment[i] = j;
-                if (deletedSegment[i] >= waifuArray.Length)
+                selectedSegment[i] = j;
+                if (selectedSegment[i] >= waifuArray.Length)
                 {
                     return waifuArray;
                 }
             }
-            Person[] arrayWithoutSegment = new Person[waifuArray.Length - deletedSegment.Length];
-            for (int i = 0, j = 0, z = 0; i < waifuArray.Length; i++)
+            Person[] pullOutSegment = new Person[selectedSegment.Length];
+            for (int i = 0, j = 0; i < waifuArray.Length && j < selectedSegment.Length; i++)
             {
-                if (z >= deletedSegment.Length)
+                if (selectedSegment[j] == i)
                 {
-                    arrayWithoutSegment[j] = waifuArray[i];
+                    pullOutSegment[j] = waifuArray[i];
                     j++;
-                    continue;
                 }
-                if (deletedSegment[z] == i)
-                {
-                    z++;
-                    continue;
-                }
-                arrayWithoutSegment[j] = waifuArray[i];
-                j++;
             }
-            return arrayWithoutSegment;
+            return pullOutSegment;
         }
     }
 }
