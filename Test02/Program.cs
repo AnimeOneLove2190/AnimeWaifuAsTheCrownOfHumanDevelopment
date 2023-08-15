@@ -8,7 +8,7 @@ namespace Test02Arrays4
         {
             ArrayService arrayService = new ArrayService();
             TechnicalService techService = new TechnicalService();
-            int[] randomArray = new int[10];
+            int[] randomArray = new int[15];
             techService.FillArray(randomArray);
             int[] randomArrayPlus = new int[6];
             techService.FillArray(randomArrayPlus);
@@ -38,11 +38,8 @@ namespace Test02Arrays4
             personArray[4] = personFive;
             personArray[5] = personSix;
             techService.PrintArrayNumber(randomArray);
-            int[] arrayWithoutSelectedSegmentNum = arrayService.RemoveSelectedSegmentFromArray(randomArray, 3, 6);
-            techService.PrintArrayNumber(arrayWithoutSelectedSegmentNum);
-            techService.PrintArrayPerson(personArray);
-            Person[] arrayWithoutSelectedSegmentPer = arrayService.RemoveSelectedSegmentFromArray(personArray, 2, 4);
-            techService.PrintArrayPerson(arrayWithoutSelectedSegmentPer);
+            int[] arrayWithoutValues = arrayService.RemoveSelectedValueFromArray(randomArray, 7);
+            techService.PrintArrayNumber(arrayWithoutValues);
         }
     }
 }

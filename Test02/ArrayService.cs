@@ -4,50 +4,32 @@ namespace Test02Arrays4
 {
     class ArrayService
     {
-        public int[] RemoveSelectedSegmentFromArray(int[] array, int minValueSegment, int maxValueSegment)
+        public int[] RemoveSelectedValueFromArray(int[] array, int selectedValue)
         {    
             if (array == null || array.Length == 0)
             {
                 Console.WriteLine("Сработала защита");
                 return null;
             }
-            if (maxValueSegment < minValueSegment)
+            int countOfNumbers = 0;
+            for (int i = 0; i < array.Length; i++)
             {
-                int temporaryStorage = maxValueSegment;
-                maxValueSegment = minValueSegment;
-                minValueSegment = temporaryStorage;
-            }
-            if (minValueSegment < 0)
-            {
-                return array;
-            }
-            int[] deletedSegment = new int[maxValueSegment - minValueSegment + 1];
-            for (int i = 0, j = minValueSegment; i < deletedSegment.Length; i++, j++)
-            {
-                deletedSegment[i] = j;
-                if (deletedSegment[i] >= array.Length)
+                if (array[i] == selectedValue)
                 {
-                    return array;
+                    countOfNumbers++;
                 }
             }
-            int[] arrayWithoutSegment = new int[array.Length - deletedSegment.Length];
-            for (int i = 0, j = 0, z = 0; i < array.Length; i++)
+            int[] arrayWithoutValues = new int[array.Length - countOfNumbers];
+            for (int i = 0, j = 0; i < array.Length; i++)
             {
-                if (z >= deletedSegment.Length)
+                if (array[i] == selectedValue)
                 {
-                    arrayWithoutSegment[j] = array[i];
-                    j++;
                     continue;
                 }
-                if (deletedSegment[z] == i)
-                {
-                    z++;
-                    continue;
-                }
-                arrayWithoutSegment[j] = array[i];
+                arrayWithoutValues[j] = array[i];
                 j++;
             }
-            return arrayWithoutSegment;
+            return arrayWithoutValues;
         }
         public Person[] RemoveSelectedSegmentFromArray(Person[] waifuArray, int minValueSegment, int maxValueSegment)
         {
