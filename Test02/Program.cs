@@ -8,10 +8,6 @@ namespace Test02Arrays4
         {
             ArrayService arrayService = new ArrayService();
             TechnicalService techService = new TechnicalService();
-            int[] randomArray = new int[21];
-            techService.FillArray(randomArray);
-            int[] randomArrayPlus = new int[6];
-            techService.FillArray(randomArrayPlus);
             Person personOne = new Person();
             personOne.name = "Misato Katsuragi";
             personOne.age = 29;
@@ -30,19 +26,13 @@ namespace Test02Arrays4
             Person personSix = new Person();
             personSix.name = "Holo";
             personSix.age = 834;
-            Person[] personArray = new Person[6];
-            personArray[0] = personOne;
-            personArray[1] = personTwo;
-            personArray[2] = personThree;
-            personArray[3] = personFour;
-            personArray[4] = personFive;
-            personArray[5] = personSix;
-            techService.PrintArrayNumber(randomArray);
-            int[] pullOutSegment = arrayService.PullOutSelectedSegmentFromArray(randomArray, 0, 4);
-            techService.PrintArrayNumber(pullOutSegment);
-            techService.PrintArrayPerson(personArray);
-            Person[] pullOutArray = arrayService.PullOutSelectedSegmentFromArray(personArray, 2, 4);
-            techService.PrintArrayPerson(pullOutArray);
+            int[,] random2DArray = techService.Create2DArray(4, 5, 0, 10);
+            techService.Write2DArray(random2DArray);
+            Console.WriteLine();
+            int[,] array2DWithAddedRow = arrayService.AddRowIn2DArray(random2DArray);
+            techService.Write2DArray(array2DWithAddedRow);
+            int[,,] array3D = techService.Create3DArray(4, 5, 6, 0, 10);
+            techService.Write3DArray(array3D, 6);
         }
     }
 }

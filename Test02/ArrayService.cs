@@ -4,79 +4,36 @@ namespace Test02Arrays4
 {
     class ArrayService
     {
-        public int[] PullOutSelectedSegmentFromArray(int[] array, int minValueSegment, int maxValueSegment)
+        public void CountRowsAndColums(int[,] array2D, out int rows, out int columns)
         {
-            if (array == null || array.Length == 0)
-            {
-                Console.WriteLine("Сработала защита");
-                return null;
-            }
-            if (maxValueSegment < minValueSegment)
-            {
-                int temporaryStorage = maxValueSegment;
-                maxValueSegment = minValueSegment;
-                minValueSegment = temporaryStorage;
-            }
-            if (minValueSegment < 0)
-            {
-                return array;
-            }
-            int[] selectedSegment = new int[maxValueSegment - minValueSegment + 1];
-            for (int i = 0, j = minValueSegment; i < selectedSegment.Length; i++, j++)
-            {
-                selectedSegment[i] = j;
-                if (selectedSegment[i] >= array.Length)
-                {
-                    return array;
-                }
-            }
-            int[] pullOutSegment = new int[selectedSegment.Length];
-            for (int i = 0, j = 0; i < array.Length && j < selectedSegment.Length; i++)
-            {
-                if (selectedSegment[j] == i)
-                {
-                    pullOutSegment[j] = array[i];
-                    j++;
-                }
-            }
-            return pullOutSegment;
+            rows = array2D.GetUpperBound(0) + 1;
+            columns = array2D.Length / rows;
         }
-        public Person[] PullOutSelectedSegmentFromArray(Person[] waifuArray, int minValueSegment, int maxValueSegment)
+        public int[,] AddRowIn2DArray(int[,] array2D)
         {
-            if (waifuArray == null || waifuArray.Length == 0)
+            if (array2D == null)
             {
                 Console.WriteLine("Сработала защита");
                 return null;
             }
-            if (maxValueSegment < minValueSegment)
+            int rows;
+            int columns;
+            CountRowsAndColums(array2D, out rows, out columns);
+            int newRows = rows + 1;
+            int[,] array2DWithAddedRow = new int[newRows, columns];
+            int[] addedColumn = new int[columns];
+            for (int i = 0; i < rows; i++)
             {
-                int temporaryStorage = maxValueSegment;
-                maxValueSegment = minValueSegment;
-                minValueSegment = temporaryStorage;
-            }
-            if (minValueSegment < 0)
-            {
-                return waifuArray;
-            }
-            int[] selectedSegment = new int[maxValueSegment - minValueSegment + 1];
-            for (int i = 0, j = minValueSegment; i < selectedSegment.Length; i++, j++)
-            {
-                selectedSegment[i] = j;
-                if (selectedSegment[i] >= waifuArray.Length)
+                for (int j = 0; j < columns; j++)
                 {
-                    return waifuArray;
+                    array2DWithAddedRow[i, j] = array2D[i, j];
                 }
             }
-            Person[] pullOutSegment = new Person[selectedSegment.Length];
-            for (int i = 0, j = 0; i < waifuArray.Length && j < selectedSegment.Length; i++)
+            for (int i = 0; i < columns; i++)
             {
-                if (selectedSegment[j] == i)
-                {
-                    pullOutSegment[j] = waifuArray[i];
-                    j++;
-                }
+                array2DWithAddedRow[newRows - 1, i] = addedColumn[i];
             }
-            return pullOutSegment;
+            return array2DWithAddedRow;
         }
     }
 }
