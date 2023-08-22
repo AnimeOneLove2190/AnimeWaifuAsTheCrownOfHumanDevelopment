@@ -2,27 +2,21 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Test04
+namespace Test04Strings
 {
     class TextService
     {
-        public TextFile ConnectedTextFile(TextFile personOne, TextFile personTwo)
+        readonly TechnicalService techService = new TechnicalService();
+        public string GetFirstLetterInWord(string text)
         {
-            TextFile connectedTextFile = new TextFile
+            string clearText = techService.ClearText(text);
+            if (string.IsNullOrEmpty(text) || string.IsNullOrWhiteSpace(text))
             {
-                name = $"{personOne.name}. {personTwo.name}",
-                description = $"{personOne.description} {personTwo.description}",
-                weight = personOne.weight + personTwo.weight,
-            };
-            return connectedTextFile;
-        }
-        public void AddedTextFile(TextFile person, string meow)
-        {
-            TextFile addedTextFile = new TextFile
-            {
-                description = $"{person.description} {meow}"
-            };
-            Console.WriteLine(addedTextFile.description);
+                Console.WriteLine("Сработала защита в GetFirstLetterInWord");
+                return null;
+            }
+            string firstLetter = clearText.Substring(0, 1);
+            return firstLetter;
         }
     }
 }
