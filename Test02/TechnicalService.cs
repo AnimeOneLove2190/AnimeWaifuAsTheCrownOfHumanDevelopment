@@ -43,7 +43,7 @@ namespace Test02Arrays4
                 Console.WriteLine();
             }
         }
-        public void WriteArray(int[] array)
+        public void Write1DArray(int[] array)
         {
             if (array == null || array.Length == 0)
             {
