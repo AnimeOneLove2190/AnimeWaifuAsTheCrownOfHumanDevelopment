@@ -29,8 +29,8 @@ namespace Test02Arrays4
             int[,] random2DArray = techService.Create2DArray(4, 5, 0, 10);
             techService.Write2DArray(random2DArray);
             Console.WriteLine();
-            int[] chimera = arrayService.CreateChimera(random2DArray);
-            techService.Write1DArray(chimera);
+            int[,] array2DWithNewLength = arrayService.Change2DArray(random2DArray, 3, 4);
+            techService.Write2DArray(array2DWithNewLength);
         }
     }
 }

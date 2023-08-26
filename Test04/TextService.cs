@@ -7,7 +7,7 @@ namespace Test04Strings
     class TextService
     {
         readonly TechnicalService techService = new TechnicalService();
-        public string GetFirstLetterInWord(string text)
+        public string UpFirstLetterInWord(string text)
         {
             string clearText = techService.ClearText(text);
             if (string.IsNullOrEmpty(text) || string.IsNullOrWhiteSpace(text))
@@ -15,8 +15,14 @@ namespace Test04Strings
                 Console.WriteLine("Сработала защита в GetFirstLetterInWord");
                 return null;
             }
-            string firstLetter = clearText.Substring(0, 1);
-            return firstLetter;
+            char[] charArray = new char[clearText.Length];
+            for (int i = 0; i < text.Length; i++)
+            {
+                charArray[i] = clearText[i];
+            }
+            charArray[0] = char.ToUpper(charArray[0]);
+            clearText = new string(charArray);
+            return clearText;
         }
     }
 }

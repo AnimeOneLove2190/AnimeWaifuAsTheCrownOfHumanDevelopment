@@ -9,7 +9,7 @@ namespace Test02Arrays4
             rows = array2D.GetUpperBound(0) + 1;
             columns = array2D.Length / rows;
         }
-        public int[] CreateChimera(int[,] array2D)
+        public int[,] Change2DArray(int[,] array2D, int newCountOfRows, int newCountOfColums)
         {
             if (array2D == null)
             {
@@ -19,19 +19,18 @@ namespace Test02Arrays4
             int rows;
             int columns;
             CountRowsAndColums(array2D, out rows, out columns);
-            int[] chimera = new int[array2D.Length];
-            for (int z = 0; z < chimera.Length;)
+            int[,] array2DWithNewLength = new int[newCountOfRows, newCountOfColums];
+            for (int i = 0; i < newCountOfRows; i++)
             {
-                for (int i = 0; i < rows; i++)
+                for (int j = 0; j < newCountOfColums; j++)
                 {
-                    for (int j = 0; j < columns; j++)
+                    if (i < rows && j < columns)
                     {
-                        chimera[z] = array2D[i, j];
-                        z++;
+                        array2DWithNewLength[i, j] = array2D[i, j];
                     }
                 }
             }
-            return chimera;
+            return array2DWithNewLength;
         }
     }
 }

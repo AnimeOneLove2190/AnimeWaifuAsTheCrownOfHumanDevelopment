@@ -12,12 +12,12 @@ namespace Test07
             bool result = char.IsUpper(plug);
             Console.WriteLine(result);
             TechnicalService techService = new TechnicalService();
-            string meaninglessTextOne = "     Some              text,. for((      test!@#$%^&*()_+<>:{}!№;%:?*()_+,ЭЪ/лллююю/*-+text";
+            string meaninglessTextOne = "     Some              text,. for((      test!@#$%^&*()_+<>:{}!№;%:?*()_+,ЭЪ/лллююю/*-+text ";
             string crashTest = "  ";
-            string clearText = techService.ClearText(meaninglessTextOne);
-            string clearText1 = techService.ClearText(crashTest);
-            Console.WriteLine(clearText);
-            Console.WriteLine(clearText1);
+            string clearMeaninglessTextOne = techService.ClearText(meaninglessTextOne);
+            string clearCrashTest = techService.ClearText(crashTest);
+            Console.WriteLine(clearMeaninglessTextOne);
+            Console.WriteLine(clearCrashTest);
             Console.WriteLine("Мяв");
         }
     }

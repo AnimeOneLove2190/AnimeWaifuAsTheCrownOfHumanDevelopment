@@ -9,9 +9,9 @@ namespace Test04Strings
             TechnicalService techService = new TechnicalService();
             TextService textService = new TextService();
             string meaninglessTextOne = "Some  text,. for(( test!@#$%^&*()_+<>:{}!№;%:?*()_+,ЭЪ/лллююю/*-+text";
-            string crashTest = "        ";
-            string firstLetter = textService.GetFirstLetterInWord(meaninglessTextOne);
-            Console.WriteLine(firstLetter);
+            string name = "mikasa Akkerman";
+            string upperName = textService.UpFirstLetterInWord(name);
+            Console.WriteLine(upperName);
         }
     }
 }
