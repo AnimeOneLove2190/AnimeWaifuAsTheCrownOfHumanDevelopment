@@ -10,8 +10,8 @@ namespace Test04Strings
             TextService textService = new TextService();
             string meaninglessTextOne = "Some  text,. for(( test!@#$%^&*()_+<>:{}!№;%:?*()_+,ЭЪ/лллююю/*-+text";
             string fio = "Зубенко Михаил Петрович";
-            string alphabet = textService.GetRussianAlphabet();
-            Console.WriteLine(alphabet);
+            string reversedText = textService.ReverseText(fio);
+            Console.WriteLine(reversedText);
         }
     }
 }

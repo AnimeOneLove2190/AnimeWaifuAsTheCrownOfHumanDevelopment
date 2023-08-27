@@ -10,8 +10,8 @@ namespace Test07
             int objectOne = plug;
             Console.WriteLine();
             Console.WriteLine(objectOne);
-            char symbolNumber = (char)int.Parse(Console.ReadLine());
-            Console.WriteLine(symbolNumber);
+            //char symbolNumber = (char)int.Parse(Console.ReadLine());
+            //Console.WriteLine(symbolNumber);
         }
     }
 }
