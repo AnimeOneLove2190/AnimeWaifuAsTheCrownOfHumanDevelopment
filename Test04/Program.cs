@@ -8,10 +8,11 @@ namespace Test04Strings
         {
             TechnicalService techService = new TechnicalService();
             TextService textService = new TextService();
-            string meaninglessTextOne = "Some  text,. for(( test!@#$%^&*()_+<>:{}!№;%:?*()_+,ЭЪ/лллююю/*-+text";
+            string meaninglessTextOne = "Some  text,. for(( test!@#$%^&*()_+<>:7{}!№;%:?*()_+,ЭЪ/лллююю/*-+text";
             string fio = "Зубенко Михаил Петрович";
-            string reversedText = textService.ReverseText(fio);
-            Console.WriteLine(reversedText);
+            string kek = "и";
+            string[] curvaArray = textService.SplitTextByLetter(fio, kek);
+            techService.Write1DArray(curvaArray);
         }
     }
 }
