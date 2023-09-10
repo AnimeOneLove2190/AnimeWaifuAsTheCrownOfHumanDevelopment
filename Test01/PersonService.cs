@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Test01
 {
-    class TechnicalService
+    class PersonService
     {
+        readonly TechnicalService techService = new TechnicalService();
     }
 }
-
