@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Test03
 {
@@ -6,12 +7,16 @@ namespace Test03
     {
         static void Main(string[] args)
         {
-            int inputNumOne = int.Parse(Console.ReadLine());
-            int inputNumTwo = int.Parse(Console.ReadLine());
-            int inputOperation = int.Parse(Console.ReadLine());
-            MathService performOperation = new MathService();
-            int result = performOperation.PerformOperation(inputNumOne, inputNumTwo, (Operation)inputOperation);
-            Console.WriteLine(result);
+            Random godOfNumbers = new Random();
+            List<int> numberList = new List<int>();
+            for (int i = 0; i < 10; i++)
+            {
+                numberList.Add(godOfNumbers.Next(0, 10));
+            }
+            for (int i = 0; i < numberList.Count; i++)
+            {
+                Console.WriteLine(numberList[i]);
+            }
         }
     }
 }
