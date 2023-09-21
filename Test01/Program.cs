@@ -14,7 +14,7 @@ namespace Test01
             Console.WriteLine(helicopter.GetInfo());
             Car hayachi = new Car();
             hayachi.Owner = "Давлетшин Даниил";
-            hayachi.Speed = 110;
+            hayachi.Speed = 111;
             hayachi.Сonsumption = 6;
             Console.WriteLine(hayachi.GetInfo());
             Boat meteor = new Boat();
