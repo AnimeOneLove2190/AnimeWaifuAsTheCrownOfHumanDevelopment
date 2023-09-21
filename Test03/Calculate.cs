@@ -4,11 +4,8 @@ using System.Text;
 
 namespace Test03Feature532
 {
-    enum Operation
+    abstract class Calculate
     {
-        Addition,
-        Multiplication,
-        Division,
-        Difference,
+        public abstract int DoOperation(int numOne, int numTwo);
     }
 }
