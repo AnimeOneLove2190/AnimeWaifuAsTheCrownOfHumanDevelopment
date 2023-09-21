@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Test01
 {
-    class EmployeeService
+    enum EmptyEnum
     {
     }
 }
