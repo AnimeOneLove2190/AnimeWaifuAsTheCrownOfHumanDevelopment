@@ -2,10 +2,24 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Test07
+namespace Test07Feature542
 {
-    class TechnicalService
+    class TechService
     {
+        public void WriteDictionary(Dictionary<char, int> dictionary)
+        {
+            foreach (KeyValuePair<char, int> symbol in dictionary)
+            {
+                Console.WriteLine($"{symbol.Key} - {symbol.Value}");
+            }
+        }
+        public void WriteDictionary(Dictionary<string, int> dictionary)
+        {
+            foreach (KeyValuePair<string, int> symbol in dictionary)
+            {
+                Console.WriteLine($"{symbol.Key} - {symbol.Value}");
+            }
+        }
         public string ClearText(string text)
         {
             if (string.IsNullOrEmpty(text) || string.IsNullOrWhiteSpace(text))
@@ -21,17 +35,26 @@ namespace Test07
             const char Space = (char)32;
             for (int i = 0; i < text.Length; i++)
             {
-                if (char.IsDigit(text[i]) || char.IsSymbol(text[i]) || char.IsWhiteSpace(text[i]) || char.IsPunctuation(text[i]))
+                if (char.IsPunctuation(text[i]))
                 {
+                    if (copy[i] == '-')
+                    {
+                        continue;
+                    }
                     copy[i] = Space;
                 }
             }
             string textCopy = new string(copy);
-            while(textCopy.Contains("  "))
+            textCopy = textCopy.ToLower();
+            while (textCopy.Contains("  "))
             {
                 textCopy = textCopy.Replace("  ", " ");
             }
-            if (char.IsWhiteSpace(copy[0]))
+            while (textCopy.Contains(" - "))
+            {
+                textCopy = textCopy.Replace(" - ", " ");
+            }
+            if (char.IsWhiteSpace(textCopy[0]))
             {
                 textCopy = textCopy.Trim();
             }

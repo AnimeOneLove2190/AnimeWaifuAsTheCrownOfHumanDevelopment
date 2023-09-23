@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Test03Feature532
 {
-    class Multiplication : Calculate
+    class Multiplication : ICalculable
     {
-        public override int DoOperation(int numOne, int numTwo)
+        public int DoOperation(int numOne, int numTwo)
         {
             int result = numOne * numTwo;
             return result;
