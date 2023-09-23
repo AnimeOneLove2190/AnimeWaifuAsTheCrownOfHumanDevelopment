@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Test03Feature532
 {
-    abstract class Calculate
+    interface ICalculable
     {
-        public abstract int DoOperation(int numOne, int numTwo);
+        public int DoOperation(int numOne, int numTwo);
     }
 }
