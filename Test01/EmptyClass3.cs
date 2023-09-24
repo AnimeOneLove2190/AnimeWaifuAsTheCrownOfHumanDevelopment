@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Test01
 {
-    class Program
+    class EmptyClass3
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }
