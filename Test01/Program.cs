@@ -8,7 +8,6 @@ namespace Test01
 {
     class Program
     {
-        public static object JsonConvert { get; private set; }
 
         static void Main(string[] args)
         {
@@ -31,7 +30,6 @@ namespace Test01
             }
             Console.WriteLine(text);
             string json = JsonConvert.SerializeObject(nagatoro, Formatting.Indented);
-            //крч эта хуйня не работает
         }
     }
 }
