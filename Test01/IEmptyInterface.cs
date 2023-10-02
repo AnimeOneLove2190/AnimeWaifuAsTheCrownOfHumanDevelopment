@@ -4,8 +4,7 @@ using System.Text;
 
 namespace Test01
 {
-    interface IPersonBuilder
-    {
-        public Person CreatePerson();
+    interface IEmptyInterface
+    { 
     }
 }

@@ -4,7 +4,9 @@ using System.Text;
 
 namespace Test01
 {
-    enum EmptyEnum
+    public enum Categories
     {
+        PhoneCases,
+        PassportCovers
     }
 }

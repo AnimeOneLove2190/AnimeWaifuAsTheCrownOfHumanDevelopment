@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.33801.447
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test01Feature530", "Test01\Test01Feature530.csproj", "{539062F3-0E19-42D3-AAF0-45EECB2A1F05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test01", "Test01\Test01.csproj", "{539062F3-0E19-42D3-AAF0-45EECB2A1F05}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test02Feature531", "Test02\Test02Feature531.csproj", "{D0C98252-62F5-4400-BC26-B368F6233A68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test02", "Test02\Test02.csproj", "{D0C98252-62F5-4400-BC26-B368F6233A68}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test03Feature536", "Test03\Test03Feature536.csproj", "{7ED22C75-0CF5-4B02-B34D-86A0B8117F92}"
 EndProject

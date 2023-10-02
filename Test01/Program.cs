@@ -11,25 +11,14 @@ namespace Test01
 
         static void Main(string[] args)
         {
-            var nagatoro = new Person
-            {
-                Name = "Nagatoro",
-                Hobbies = new List<string>()
-            };
-            nagatoro.Hobbies.Add("Cats");
-            nagatoro.Hobbies.Add("Judo");
-            nagatoro.Hobbies.Add("Bullying Hachioji");
-            using(StreamWriter file = File.CreateText("Nagatoro.txt"))
-            {
-                file.Write("Hayachi Nagatoro");
-            }
-            var text = string.Empty;
-            using(StreamReader read = File.OpenText("Nagatoro.txt"))
-            {
-                text = read.ReadToEnd();
-            }
-            Console.WriteLine(text);
-            string json = JsonConvert.SerializeObject(nagatoro, Formatting.Indented);
+            var tech = new TechService();
+            var f = "зубенко";
+            var i = "михаил";
+            var o = "петрович";
+            char[] surnameArray = f.ToCharArray();
+            surnameArray[0] = char.ToUpper(surnameArray[0]);
+            f = new string(surnameArray);
+            Console.WriteLine($"{f} {char.ToUpper(i[0])}. {char.ToUpper(o[0])}.");
         }
     }
 }
