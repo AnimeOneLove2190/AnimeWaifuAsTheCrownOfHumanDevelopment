@@ -17,18 +17,6 @@ namespace Test02Feature531
                 return "нет";
             }
         }
-        public string CheckType(TypeOfShell type)
-        {
-            if (type == TypeOfShell.Vertical)
-            {
-                return "вертикальный";
-            }
-            if (type == TypeOfShell.Horizontal)
-            {
-                return "горизонтальный";
-            }
-            return "квантовая суперпозиция";
-        }
         public string CheckMaterial(BodyMaterial material)
         {
             if (material == BodyMaterial.Plastic)

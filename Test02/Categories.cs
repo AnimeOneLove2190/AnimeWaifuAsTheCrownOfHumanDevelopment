@@ -4,10 +4,9 @@ using System.Text;
 
 namespace Test02Feature531
 {
-    enum TypeOfShell
+    enum Categories
     {
-        QuantumSuperposition,
-        Horizontal,
-        Vertical
+        PhoneCases,
+        PassportCovers
     }
 }

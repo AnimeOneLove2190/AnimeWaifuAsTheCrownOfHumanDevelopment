@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Test02Feature531
 {
@@ -6,32 +8,91 @@ namespace Test02Feature531
     {
         static void Main(string[] args)
         {
-            DesktopComputer desktop = new DesktopComputer();
-            desktop.Model = "TopComp LP 111902013";
-            desktop.VideoCard = "AMD Radeon R2";
-            desktop.RAM = 1;
-            desktop.CPU = "AMD E1 6010";
-            desktop.TypeOfShell = TypeOfShell.Vertical;
-            desktop.BodyMaterial = BodyMaterial.Plastic;
-            Console.WriteLine(desktop.GetInfo());
-            Monoblock monoblock = new Monoblock();
-            monoblock.Model = "Lenovo C20-05";
-            monoblock.VideoCard = "AMD Radeon R2";
-            monoblock.RAM = 4;
-            monoblock.CPU = "AMD E1-6010";
-            monoblock.BodyMaterial = BodyMaterial.Plastic;
-            monoblock.ScreenDiagonal = 19.5;
-            monoblock.Webcam = true;
-            Console.WriteLine(monoblock.GetInfo());
-            Laptop veteranOfLabourran = new Laptop();
-            veteranOfLabourran.Model = "Lenovo B590";
-            veteranOfLabourran.VideoCard = "NVIDIA GeForce GT 720M";
-            veteranOfLabourran.RAM = 8;
-            veteranOfLabourran.CPU = "Intel(R) Core(TM) i5-3230M";
-            veteranOfLabourran.BodyMaterial = BodyMaterial.Plastic;
-            veteranOfLabourran.Webcam = true;
-            veteranOfLabourran.BatteryCapacity = 202;
-            Console.WriteLine(veteranOfLabourran.GetInfo());
+            //566
+            var phoneCaseOne = new Product
+            {
+                Name = "Case for phone one",
+                Price = 450,
+                Category = Categories.PhoneCases
+            };
+            var phoneCaseTwo = new Product
+            {
+                Name = "Case for phone two",
+                Price = 500,
+                Category = Categories.PhoneCases
+            };
+            var passportCoverOne = new Product
+            {
+                Name = "Passport Cover one",
+                Price = 150,
+                Category = Categories.PassportCovers
+            };
+            var passportCoverTwo = new Product
+            {
+                Name = "Passport Cover two",
+                Price = 200,
+                Category = Categories.PassportCovers
+            };
+            var productListOne = new List<Product>
+            {
+                phoneCaseOne,
+                phoneCaseTwo,
+                passportCoverOne,
+                passportCoverTwo
+            };
+            var minPrice = productListOne.Min(x => x.Price);
+            var productWithMinPrice = productListOne.FirstOrDefault(x => x.Price == minPrice);
+            if (productWithMinPrice == null)
+            {
+                throw new Exception("Студент с искомым возрастом не найден");
+            }
+            else
+            {
+                Console.WriteLine(productWithMinPrice.Name);
+                Console.WriteLine(productWithMinPrice.Price);
+                Console.WriteLine(productWithMinPrice.Category);
+            }
+            //569
+            var categoryProductList = productListOne.Where(x => x.Category == Categories.PhoneCases).ToList();
+            if (categoryProductList == null || categoryProductList.Count == 0)
+            {
+                throw new Exception("Студенты с искомым возрастом не найдены");
+            }
+            else
+            {
+                foreach (var product in categoryProductList)
+                {
+                    Console.WriteLine(product.Name);
+                    Console.WriteLine(product.Price);
+                    Console.WriteLine(product.Category);
+                }
+            }
+            //572
+            var poroductNamesList = productListOne.Where(x => x.Category == Categories.PassportCovers).Select(x => x.Name).ToList();
+            if (poroductNamesList == null || poroductNamesList.Count == 0)
+            {
+                throw new Exception("Студенты с искомым возрастом не найдены");
+            }
+            else
+            {
+                foreach (var name in poroductNamesList)
+                {
+                    Console.WriteLine(name);
+                }
+            }
+            //573
+            var productNamesWithPriceHigher = productListOne.Where(x => x.Price > 470).Select(x => x.Name).ToList();
+            if (productNamesWithPriceHigher == null || productNamesWithPriceHigher.Count == 0)
+            {
+                throw new Exception("Студенты с искомым возрастом не найдены");
+            }
+            else
+            {
+                foreach (var name in productNamesWithPriceHigher)
+                {
+                    Console.WriteLine(name);
+                }
+            }
         }
     }
 }
