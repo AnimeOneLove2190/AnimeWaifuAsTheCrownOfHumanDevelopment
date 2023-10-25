@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Test07Feature542
+namespace Test07
 {
     class Program
     {

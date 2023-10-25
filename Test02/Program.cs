@@ -6,6 +6,7 @@ namespace Test02Feature531
 {
     class Program
     {
+        //Server=localhost;Database=master;Trusted_Connection=True;
         static void Main(string[] args)
         {
             //566

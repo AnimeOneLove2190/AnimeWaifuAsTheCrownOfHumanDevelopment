@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Test07Feature542
+namespace Test07
 {
     class TechService
     {

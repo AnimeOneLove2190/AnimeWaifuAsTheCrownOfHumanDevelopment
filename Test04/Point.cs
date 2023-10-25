@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Test04Feature533
+namespace Test04
 {
     class Point
     {

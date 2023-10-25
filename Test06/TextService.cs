@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Test06Feature542
+namespace Test06
 {
     class TextService : ICharable
     {

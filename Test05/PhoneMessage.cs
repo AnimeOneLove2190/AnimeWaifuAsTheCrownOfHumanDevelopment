@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Test05Feature534
+namespace Test05
 {
     class PhoneMessage : Message
     {

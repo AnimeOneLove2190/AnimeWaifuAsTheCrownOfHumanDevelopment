@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Test03Feature532
+namespace Test03
 {
     class Multiplication : ICalculable
     {
