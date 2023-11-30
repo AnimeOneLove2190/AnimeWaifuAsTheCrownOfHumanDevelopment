@@ -15,11 +15,9 @@ namespace Test01
             var tech = new TechService();
             var laputa = new UniversalClass
             {
-                Id = 1,
-                Name = "Tenkuu no Shiro Laputa",
-                Description = "Мяв. Альтернативная реальность, соответствующая началу XX века. В руках девочки по имени Сита находится Летающий Камень. За ним охотятся агенты правительства и пираты, потому что Камень представляет огромную ценность. Пытаясь скрыться от преследователей, Сита встречает Падзу, своего ровесника, работающего в шахтерском городке. Вместе дети выясняют, что Камень — ключ к таинственному летающему острову Лапута.",
-                Duration = 125,
-                GenreIds = new List<int>
+                Id = 4,
+                Name = "Meow",
+                RowsNumbers = new List<int>
                 {
                     1,
                     2,
@@ -29,10 +27,12 @@ namespace Test01
                 }
             };
             string movieJson = JsonConvert.SerializeObject(laputa, Formatting.Indented);
-            using (StreamWriter somePlaylist = File.CreateText("Some Movie.json"))
+            using (StreamWriter somePlaylist = File.CreateText("Update Hall.json"))
             {
                 somePlaylist.Write(movieJson);
             }
+            var date = DateTime.Now;
+            Console.WriteLine(date);
         }
     }
 }

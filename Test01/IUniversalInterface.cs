@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Test01
 {
-    interface IEmptyInterface
+    interface IUniversalInterface
     { 
     }
 }
